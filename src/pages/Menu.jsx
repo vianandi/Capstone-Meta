@@ -13,7 +13,6 @@ const Menu = () => {
           <Hero />
         </div>
         <BestSellerSection />
-        <Categories />
         <ListMenu />
       </div>
       <Footer />
