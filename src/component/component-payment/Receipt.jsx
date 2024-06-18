@@ -1,10 +1,14 @@
 import React, { useState } from "react";
+import { useLocation } from "react-router-dom";
 import Cash from "../../images/cash.svg";
 import CardCredit from "../../images/cardcredit.svg";
 import qr from "../../images/qr.svg";
 import ThankYouOverlay from "../../pages/Thanks";
 
-const Receipt = ({ selectedBench, floorName, selectedDate, selectedTime }) => {
+const Receipt = () => {
+  const location = useLocation();
+  const { selectedBench, floorName, selectedDate, selectedTime, price } =
+    location.state;
   const [selectedPaymentMethod, setSelectedPaymentMethod] = useState("Cash");
   const [promoCode, setPromoCode] = useState("");
   const [discount, setDiscount] = useState(0);
@@ -26,7 +30,7 @@ const Receipt = ({ selectedBench, floorName, selectedDate, selectedTime }) => {
     setShowThankYou(true);
   };
 
-  const totalPayment = 155000 - discount;
+  const totalPayment = price + 5000 - discount; // 5000 is the ordering service fee
 
   return (
     <>
@@ -37,7 +41,7 @@ const Receipt = ({ selectedBench, floorName, selectedDate, selectedTime }) => {
           <p className="text-lg">{`${selectedBench.label}, Floor : ${floorName}`}</p>
           <p className="text-lg">{` ${selectedDate.toDateString()} | ${selectedTime}`}</p>
           <div className="text-lg mt-4">
-            <p>Fee: IDR 150,000.00</p>
+            <p>Fee: IDR {price.toLocaleString()}</p>
             <p>Ordering Service Fees: IDR 5,000.00</p>
           </div>
         </div>

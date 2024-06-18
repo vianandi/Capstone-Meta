@@ -40,7 +40,7 @@ const Cart = () => {
           </ul>
           <button
             onClick={handleProceedToPayment}
-            className="w-full bg-yellow-500 text-white py-2 rounded-lg"
+            className="w-full bg-[#F4CE14] text-[#495E57] py-2 rounded-lg"
           >
             Proceed to Payment
           </button>

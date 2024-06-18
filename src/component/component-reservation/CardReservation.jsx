@@ -26,10 +26,10 @@ const Reservation = () => {
       name: "1st Floor - Indoor",
       image: indoor1,
       benches: [
-        { id: 1, label: "Bench for 2 Person", available: 8 },
-        { id: 2, label: "Bench for 4 Person", available: 2 },
-        { id: 3, label: "Bench for 6 Person", available: 0 },
-        { id: 4, label: "Bench for 8 Person", available: 0 },
+        { id: 1, label: "Bench for 2 Person", available: 8, price: 50000 },
+        { id: 2, label: "Bench for 4 Person", available: 2, price: 100000 },
+        { id: 3, label: "Bench for 6 Person", available: 0, price: 150000 },
+        { id: 4, label: "Bench for 8 Person", available: 0, price: 200000 },
       ],
     },
     {
@@ -37,10 +37,10 @@ const Reservation = () => {
       name: "2nd Floor - Indoor",
       image: indoor2,
       benches: [
-        { id: 1, label: "Bench for 2 Person", available: 4 },
-        { id: 2, label: "Bench for 4 Person", available: 3 },
-        { id: 3, label: "Bench for 6 Person", available: 1 },
-        { id: 4, label: "Bench for 8 Person", available: 2 },
+        { id: 1, label: "Bench for 2 Person", available: 4, price: 50000 },
+        { id: 2, label: "Bench for 4 Person", available: 3, price: 100000 },
+        { id: 3, label: "Bench for 6 Person", available: 1, price: 150000 },
+        { id: 4, label: "Bench for 8 Person", available: 2, price: 200000 },
       ],
     },
     {
@@ -48,10 +48,10 @@ const Reservation = () => {
       name: "1st Floor - Outdoor",
       image: outdoor1,
       benches: [
-        { id: 5, label: "Bench for 2 Person", available: 3 },
-        { id: 6, label: "Bench for 4 Person", available: 2 },
-        { id: 3, label: "Bench for 6 Person", available: 0 },
-        { id: 4, label: "Bench for 8 Person", available: 1 },
+        { id: 1, label: "Bench for 2 Person", available: 3, price: 50000 },
+        { id: 2, label: "Bench for 4 Person", available: 2, price: 100000 },
+        { id: 3, label: "Bench for 6 Person", available: 0, price: 150000 },
+        { id: 4, label: "Bench for 8 Person", available: 1, price: 200000 },
       ],
     },
     {
@@ -59,10 +59,10 @@ const Reservation = () => {
       name: "2nd Floor - Outdoor",
       image: outdoor2,
       benches: [
-        { id: 1, label: "Bench for 2 Person", available: 4 },
-        { id: 2, label: "Bench for 4 Person", available: 0 },
-        { id: 7, label: "Bench for 6 Person", available: 1 },
-        { id: 8, label: "Bench for 8 Person", available: 0 },
+        { id: 1, label: "Bench for 2 Person", available: 4, price: 50000 },
+        { id: 2, label: "Bench for 4 Person", available: 0, price: 100000 },
+        { id: 3, label: "Bench for 6 Person", available: 1, price: 150000 },
+        { id: 4, label: "Bench for 8 Person", available: 0, price: 200000 },
       ],
     },
   ];
@@ -88,6 +88,7 @@ const Reservation = () => {
           floorName: selectedFloor,
           selectedDate,
           selectedTime,
+          price: selectedBench.price,
         },
       });
     }
@@ -204,7 +205,9 @@ const BenchOverlay = ({
         </div>
         <div className="bg-[#333333] text-white p-4 rounded-lg mt-8">
           <p className="text-lg">Bench Reservation</p>
-          <p className="text-2xl font-bold">IDR 150,000.00</p>
+          <p className="text-2xl font-bold">
+            IDR {selectedBench ? selectedBench.price.toFixed(2) : "0.00"}
+          </p>
           <button
             onClick={handleReservation}
             className="bg-yellow-500 text-black py-2 px-4 rounded-lg mt-4 w-full"
