@@ -220,7 +220,7 @@ const PaymentFood = () => {
           )}
           <button
             onClick={handlePayment}
-            className="bg-green-500 text-white py-2 px-4 rounded-lg w-full"
+            className="bg-[#495E57] text-[#F4CE14] py-2 px-4 rounded-lg w-full"
           >
             Order
           </button>

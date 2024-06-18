@@ -30,7 +30,7 @@ const Receipt = ({ selectedBench, floorName, selectedDate, selectedTime }) => {
 
   return (
     <>
-      <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-lg mx-auto mt-20">
+      <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-lg mx-auto my-5">
         <h1 className="text-center text-2xl font-bold mb-8">PAYMENT</h1>
         <div className="mb-4 text-center">
           <h2 className="text-xl font-semibold mb-2">Reservation</h2>
@@ -121,7 +121,7 @@ const Receipt = ({ selectedBench, floorName, selectedDate, selectedTime }) => {
           <p>You Save: IDR {discount.toLocaleString()}</p>
         </div>
         <button
-          className="bg-yellow-500 text-black py-2 px-4 rounded-lg w-full mt-4"
+          className="bg-[#495E57] text-[#F4CE14] py-2 px-4 rounded-lg w-full mt-4"
           onClick={handleReservation}
         >
           Reservation

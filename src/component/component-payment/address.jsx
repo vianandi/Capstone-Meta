@@ -4,7 +4,7 @@ import Maps from "../../images/maps.svg";
 
 const Address = () => {
   return (
-    <div className="flex justify-center items-center text-left mb-8 p-4 bg-white shadow-md rounded-lg">
+    <div className="flex justify-center items-center text-left mb-4 p-4 bg-white shadow-md rounded-lg">
       <div className="flex items-center mb-2 w-[450px]">
         <img src={Location} alt="Location" className="h-6 w-6 mr-2" />
         <div>
